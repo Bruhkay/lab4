@@ -1,0 +1,51 @@
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+
+import java.awt.event.*;
+
+/* 
+public class autFrame extends JFrame {
+    private String name;
+    private int speed;
+    JLabel label;
+    JTextField nameTextField;
+    JTextField speedTextField;
+    JButton startButton;
+    ActionListener listener;
+    JPanel allPanel = new JPanel(new GridLayout(3,2));
+    autFrame(){
+        listener = new sucu();
+        setLayout(new GridLayout(2,1));
+        allPanel.add(new JLabel("Name: "), SwingConstants.CENTER);
+        nameTextField = new JTextField();
+        nameTextField.addActionListener(listener);
+        allPanel.add(nameTextField);
+        allPanel.add(new JLabel("Speed: "), SwingConstants.CENTER);
+        speedTextField = new JTextField();
+        speedTextField.addActionListener(listener);
+        allPanel.add(speedTextField);
+
+        startButton = new JButton("Start");
+        startButton.addActionListener(listener);
+        add(allPanel);
+        add(startButton);
+        
+        
+
+    }
+    class sucu implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            name = nameTextField.getText();
+            /* if(name.isEmpty() && startButton.){
+                JOptionPane.showMessageDialog(null, "Name cannot be empty");
+            } */
+            
+            */
+        
