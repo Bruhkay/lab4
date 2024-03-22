@@ -2,7 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.*;
 
-public class Bomb extends JPanel implements InteractableDrawing{
+public class Bomb extends JComponent implements InteractableDrawing{
 
     private int xCordinates;
     private int yCordinates;
@@ -23,8 +23,7 @@ public class Bomb extends JPanel implements InteractableDrawing{
 
     @Override
     public void interact(Ship s) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'interact'");
+        s.setDamage();
     }
 
     @Override
@@ -35,7 +34,7 @@ public class Bomb extends JPanel implements InteractableDrawing{
 
     @Override
     public void draw(Graphics g) {
-        g.fillRect(xCordinates, yCordinates, WIDTH, HEIGHT);
+        g.fillRect(xCordinates, yCordinates, objectWidth,objectHeight);
     }
     public int getObjectHeight() {
         return objectHeight;

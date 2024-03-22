@@ -2,7 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.*;
 
-public class Apple extends JPanel implements InteractableDrawing{
+public class Apple extends JComponent implements InteractableDrawing{
 
     private int xCordinates;
     private int yCordinates;
@@ -23,8 +23,7 @@ public class Apple extends JPanel implements InteractableDrawing{
 
     @Override
     public void interact(Ship s) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'interact'");
+        s.appendPoints();
     }
 
     @Override

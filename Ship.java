@@ -1,19 +1,23 @@
 import javax.swing.*;
 import java.awt.*;
-public class Ship extends JPanel{
-    private int xCordinates;
-    private int yCordinates;
+
+import javax.swing.JComponent;
+public class Ship {
+    private int xCordinates = 100;
+    private int yCordinates = 100;
     private int objectWidth = 30;
     private int objectHeight = 25;
     private int health = 3;
     private int points = 0;
 
     Ship(){
-        setSize(objectWidth,objectHeight);
-        setBackground(Color.YELLOW);
+       
     }
     public void draw(Graphics g){
+        
+        g.setColor(Color.YELLOW);
         g.fillRect(xCordinates, yCordinates, objectWidth, objectHeight);
+
     }
     public int getObjectHeight() {
         return objectHeight;
@@ -32,11 +36,16 @@ public class Ship extends JPanel{
     }public int getPoints() {
         return points;
     }
-    public void setHealth(int health) {
-        this.health = health;
+    public void setDamage() {
+        this.health -=1;
     }
-    public void setPoints(int points) {
-        this.points = points;
+    public void appendPoints() {
+        this.points += 1;
+    }
+    public void moveTo(int x, int y)
+    {
+       xCordinates = x;
+       yCordinates = y;   
     }
     
 }

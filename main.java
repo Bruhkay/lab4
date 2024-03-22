@@ -23,14 +23,10 @@ public class main {
     public static void main(String[] args) {
 
         
-        JFrame game = new JFrame("gameee");
-        JPanel gamepanel;
-        game.setLayout(new BorderLayout());
-        gamepanel = new GamePanel(namem, speedm);
+        JFrame game = new GameFrame("gameee", 5);
         game.setSize(600,600);
-        gamepanel.setPreferredSize(new Dimension(600,600));
         game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        game.add(gamepanel, BorderLayout.CENTER);
+        game.setBackground(Color.RED);
         game.setVisible(true);
 
         /* JFrame autFrame = new JFrame("Ship game");
