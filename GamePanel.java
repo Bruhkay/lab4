@@ -20,22 +20,24 @@ public class GamePanel extends JPanel {
     private Timer zaman;
     ArrayList<InteractableDrawing> listObjects;
 
-    Ship ship = new Ship();
+    Ship ship;
     
     MouseMotionListener takip = new mouseListener();
     
 
     GamePanel(String namem, int speedm){
 
-        ActionListener listener = new timerr();
-        zaman = new Timer(5, listener);
-        zaman.start();
 
         listObjects = new ArrayList<InteractableDrawing>();
 
         this.name= namem;
         this.speed = speedm;
         this.setBackground(Color.BLUE);
+        
+        ActionListener listener = new timerr();
+        zaman = new Timer(10/speed+1, listener);
+        zaman.start();
+        ship = new Ship(namem);
         addMouseMotionListener(takip);
 
         
@@ -44,6 +46,9 @@ public class GamePanel extends JPanel {
         super.paintComponent(g);
         this.setBackground(Color.BLUE);
         ship.draw(g);
+        for (InteractableDrawing x : listObjects) {
+            x.draw(g);
+        }
         
     }
     public void createBomb(){
@@ -60,7 +65,21 @@ public class GamePanel extends JPanel {
     class timerr implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            //zaman
+            for (int i = 0; i< listObjects.size() ; i++) {
+                listObjects.get(i).moveLeft(speed);
+                if(listObjects.get(i).intersects(ship)){
+                    listObjects.get(i).interact(ship);
+                    listObjects.remove(i);
+
+                }
+            }
+            if((int)(Math.random()*80) >=79){
+                createBomb();
+            }
+            if((int)(Math.random()*80) >=79){
+                createApple();
+            }
+            
         }
         
     }
@@ -72,9 +91,8 @@ public class GamePanel extends JPanel {
 
         @Override
         public void mouseMoved(MouseEvent e) {
-            int x = e.getX();
-            int y = e.getY();
-            System.out.println(e.getX());
+            int x = e.getX()-25;
+            int y = e.getY()-25;
             ship.moveTo(x, y);
             repaint();
         }

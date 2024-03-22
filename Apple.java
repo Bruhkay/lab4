@@ -1,16 +1,14 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.*;
+public class Apple  implements InteractableDrawing{
 
-public class Apple extends JComponent implements InteractableDrawing{
-
-    private int xCordinates;
+    private int xCordinates= 600;
     private int yCordinates;
     private int objectWidth = 30;
     private int objectHeight = 25;
     Apple(){
-        setSize(objectWidth,objectHeight);
-        setBackground(Color.LIGHT_GRAY);
+        yCordinates = (int)(Math.random()*600);
     }
     @Override
     public boolean intersects(Ship s) {
@@ -24,17 +22,24 @@ public class Apple extends JComponent implements InteractableDrawing{
     @Override
     public void interact(Ship s) {
         s.appendPoints();
+        
     }
 
     @Override
     public boolean moveLeft(int speed) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'moveLeft'");
+        xCordinates -= 1;
+        if(xCordinates<=0){
+            return true;
+        }
+        return false;
     }
 
     @Override
     public void draw(Graphics g) {
-        g.fillRect(xCordinates, yCordinates, WIDTH, HEIGHT);
+        g.setColor(Color.LIGHT_GRAY);
+        g.fillRect(xCordinates, yCordinates, objectWidth, objectHeight);
+        g.setColor(Color.RED);
+        g.fillOval(xCordinates, yCordinates, objectWidth, objectHeight);
     }
     public int getObjectHeight() {
         return objectHeight;

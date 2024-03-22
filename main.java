@@ -23,13 +23,10 @@ public class main {
     public static void main(String[] args) {
 
         
-        JFrame game = new GameFrame("gameee", 5);
-        game.setSize(600,600);
-        game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        game.setBackground(Color.RED);
-        game.setVisible(true);
+        
+        
 
-        /* JFrame autFrame = new JFrame("Ship game");
+        JFrame autFrame = new JFrame("Ship game");
         autFrame.setLayout(new GridLayout(3,1));
         autFrame.setSize(300,200);
         autFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -72,15 +69,11 @@ public class main {
                 }
                 else{
 
-                    JFrame game = new JFrame("gameee");
-                    JPanel gamepanel;
-                    game.setLayout(new BorderLayout());
-                    autFrame.setVisible(false);
-                    gamepanel = new GamePanel(namem, speedm);
+                    JFrame game = new GameFrame(namem, speedm);
                     game.setSize(600,600);
-                    gamepanel.setPreferredSize(new Dimension(600,600));
                     game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    game.add(gamepanel, BorderLayout.CENTER);
+                    game.setBackground(Color.RED);
+                    autFrame.setVisible(false);
                     game.setVisible(true);
                     
                 }
@@ -90,7 +83,7 @@ public class main {
         autFrame.add(row2);
         autFrame.add(startButton);
         
-        autFrame.setVisible(true); */
+        autFrame.setVisible(true); 
 
     }
 }
