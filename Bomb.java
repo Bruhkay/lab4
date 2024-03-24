@@ -24,8 +24,15 @@ public class Bomb implements InteractableDrawing{
     public void interact(Ship s) {
         s.setDamage();
         if(s.getHealth()==0){
-            JOptionPane.showConfirmDialog(null,"you died" + "Points: "+s.getPoints());
+            int response = JOptionPane.showConfirmDialog(null,"you died" + "Points: "+s.getPoints());
+            if(response == JOptionPane.OK_OPTION){
+
+            }
+            else{
+                System.exit(0);
+            }
         }
+        
     }
 
     @Override

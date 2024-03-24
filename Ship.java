@@ -10,9 +10,10 @@ public class Ship {
     private int health = 3;
     private int points = 0;
     private String name;
-
-    Ship(String name){
+    JFrame frame;
+    Ship(String name, JFrame f){
        this.name = name;
+       frame = f;
     }
     public void draw(Graphics g){
         
@@ -41,6 +42,8 @@ public class Ship {
     }
     public void setDamage() {
         this.health -=1;
+        GameFrame.skor = ""+ health;
+        frame.setTitle(name);
     }
     public void appendPoints() {
         this.points += 1;

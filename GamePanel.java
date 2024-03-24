@@ -23,9 +23,9 @@ public class GamePanel extends JPanel {
     Ship ship;
     
     MouseMotionListener takip = new mouseListener();
-    
+    JFrame kk;
 
-    GamePanel(String namem, int speedm){
+    GamePanel(String namem, int speedm, JFrame kk){
 
 
         listObjects = new ArrayList<InteractableDrawing>();
@@ -33,11 +33,11 @@ public class GamePanel extends JPanel {
         this.name= namem;
         this.speed = speedm;
         this.setBackground(Color.BLUE);
-        
+        this.kk = kk;
         ActionListener listener = new timerr();
         zaman = new Timer(10/speed+1, listener);
         zaman.start();
-        ship = new Ship(namem);
+        ship = new Ship(namem, kk);
         addMouseMotionListener(takip);
 
         
