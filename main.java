@@ -20,11 +20,7 @@ public class main {
 
     static String namem = "";
     static int speedm = -1;
-    public static void main(String[] args) {
-
-        
-        
-        
+    public static void main(String[] args) {       
 
         JFrame autFrame = new JFrame("Ship game");
         autFrame.setLayout(new GridLayout(3,1));
@@ -60,7 +56,6 @@ public class main {
         JButton startButton = new JButton("Start");
         startButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-                JOptionPane caution = new JOptionPane();
                 if(namem.isEmpty()){
                     JOptionPane.showMessageDialog(null,"Name cannot be empty!!!");
                 }

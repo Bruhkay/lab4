@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-
-import javax.swing.JComponent;
 public class Ship {
     private int xCordinates = 100;
     private int yCordinates = 100;
@@ -12,8 +10,10 @@ public class Ship {
     private String name;
     JFrame frame;
     Ship(String name, JFrame f){
-       this.name = name;
-       frame = f;
+        this.health = 3;
+        this.points = 0;
+        this.name = name;
+        frame = f;
     }
     public void draw(Graphics g){
         
@@ -21,6 +21,8 @@ public class Ship {
         g.fillRect(xCordinates, yCordinates, objectWidth, objectHeight);
         g.setColor(Color.RED);
         g.drawString(name, xCordinates, yCordinates+15);
+        
+        GamePanel.kk.setTitle("Points "+ getPoints() + "Health " + getHealth());
 
     }
     public int getObjectHeight() {
@@ -42,8 +44,6 @@ public class Ship {
     }
     public void setDamage() {
         this.health -=1;
-        GameFrame.skor = ""+ health;
-        frame.setTitle(name);
     }
     public void appendPoints() {
         this.points += 1;
@@ -52,6 +52,12 @@ public class Ship {
     {
        xCordinates = x;
        yCordinates = y;   
+    }
+    public void setHealth(int health) {
+        this.health = health;
+    }
+    public void setPoints(int points) {
+        this.points = points;
     }
     
 }

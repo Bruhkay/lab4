@@ -23,10 +23,12 @@ public class Apple  implements InteractableDrawing{
     public void interact(Ship s) {
         s.appendPoints();
         
+        
     }
 
     @Override
     public boolean moveLeft(int speed) {
+        
         xCordinates -= 1;
         if(xCordinates<=0){
             return true;

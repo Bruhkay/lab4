@@ -9,10 +9,12 @@ public class Bomb implements InteractableDrawing{
     private int objectWidth = 30;
     private int objectHeight = 25;
     Bomb(){
+        
         yCordinates = (int)(Math.random()*600);
     }
     @Override
     public boolean intersects(Ship s) {
+        
         if((xCordinates+objectWidth> s.getxCordinates() && s.getxCordinates()+ s.getObjectWidth()> xCordinates)&&
         (s.getyCordinates()+ s.getObjectHeight()> yCordinates && yCordinates+objectHeight> s.getyCordinates())){
             return true;
@@ -23,10 +25,13 @@ public class Bomb implements InteractableDrawing{
     @Override
     public void interact(Ship s) {
         s.setDamage();
+        
+
         if(s.getHealth()==0){
             int response = JOptionPane.showConfirmDialog(null,"you died" + "Points: "+s.getPoints());
             if(response == JOptionPane.OK_OPTION){
-
+                s.setHealth(3);
+                s.setPoints(0);
             }
             else{
                 System.exit(0);

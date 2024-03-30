@@ -4,7 +4,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
-import java.awt.Graphics2D;
 import java.awt.Shape;
 
 import javax.swing.Timer;
@@ -23,7 +22,7 @@ public class GamePanel extends JPanel {
     Ship ship;
     
     MouseMotionListener takip = new mouseListener();
-    JFrame kk;
+    public static JFrame kk;
 
     GamePanel(String namem, int speedm, JFrame kk){
 
@@ -91,6 +90,7 @@ public class GamePanel extends JPanel {
 
         @Override
         public void mouseMoved(MouseEvent e) {
+            
             int x = e.getX()-25;
             int y = e.getY()-25;
             ship.moveTo(x, y);
